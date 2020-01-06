@@ -189,6 +189,7 @@ canvas.on('mouse:down', function(o) {
       selectable: true,
       id: 'mask'
     });*/
+    canvas.setActiveObject(crop_rect);
     canvas.add(crop_rect);
     canvas.renderAll();
   }
@@ -198,7 +199,7 @@ canvas.on('mouse:down', function(o) {
 });
 
 canvas.on('mouse:move', function(o) {
-  /*if( isInsertingCropRectangle == true ){
+  if( isInsertingCropRectangle == true ){
     console.log('mouse move done = '+done);
     if (done) {
       canvas.renderAll();
@@ -217,13 +218,24 @@ canvas.on('mouse:move', function(o) {
         top: Math.abs(pointer.y)
       });
     }
-
+    console.log(origX , origY , pointer.x , pointer.y);
+    let oldWidth = crop_rect.width;
+    let calcWidth = Math.abs(origX - pointer.x)
+    let oldHeight = crop_rect.height;
+    let calcHeight = Math.abs(origY - pointer.y)
     crop_rect.set({
+      scaleX: (calcWidth-oldWidth)/oldWidth,
+    });
+    crop_rect.set({
+      scaleY: (calcHeight-oldHeight)/oldHeight,
+    });
+
+    /*crop_rect.set({
       width: Math.abs(origX - pointer.x)
     });
     crop_rect.set({
       height: Math.abs(origY - pointer.y)
-    });
+    });*/
 
 
     crop_rect.setCoords();
@@ -231,7 +243,7 @@ canvas.on('mouse:move', function(o) {
   }
   else{
 
-  }*/
+  }
 });
 
 canvas.on('mouse:up', function(o) {
