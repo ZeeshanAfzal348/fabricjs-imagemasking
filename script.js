@@ -198,7 +198,7 @@ canvas.on('mouse:down', function(o) {
 });
 
 canvas.on('mouse:move', function(o) {
-  if( isInsertingCropRectangle == true ){
+  /*if( isInsertingCropRectangle == true ){
     console.log('mouse move done = '+done);
     if (done) {
       canvas.renderAll();
@@ -231,7 +231,7 @@ canvas.on('mouse:move', function(o) {
   }
   else{
 
-  }
+  }*/
 });
 
 canvas.on('mouse:up', function(o) {
