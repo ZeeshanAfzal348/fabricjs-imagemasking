@@ -13,8 +13,8 @@ canvas = new fabric.Canvas('c', {
 let crop_rect, isDown, origX, origY, mask, target;
 let done = false;
 
-let src = "img/graph_paper_540.png";
-//let src = "img/girl1280.jpg";
+//let src = "img/graph_paper_540.png";
+let src = "img/girl1280.jpg";
 fabric.Image.fromURL(src, function(img) {
   img.selectable = true;
   img.id = 'target';
